@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Covid extends CI_Controller
+class Positif extends CI_Controller
 {
 
     

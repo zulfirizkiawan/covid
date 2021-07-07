@@ -18,7 +18,9 @@
                             <th>name</th>
                             <th>email</th>
                             <th>image</th>
-                            <th>password</th>
+
+                            <th>Role</th>
+                            <th>Status</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -31,10 +33,34 @@
                                 <td><?= $m['name']; ?></td>
                                 <td><?= $m['email']; ?></td>
                                 <td>
-                                    <img style="border-radius: 5px;" src="assets/img/profile/<?= $m['image']; ?>"
-                                    alt="" width="75px"></td>
+                                    <img style="border-radius: 5px;" src="<?= base_url('assets/img/profile/') . $m['image']; ?>" alt="" width="75px">
+                                </td>
 
-                                <td><?= $m['password']; ?></td>
+                                <td>
+                                    <span class="badge badge-success badge-md">
+                                        <?php if ($m['role_id'] == '1') :
+                                            echo "Administrator"; ?>
+                                    </span>
+
+                                <?php else : echo "Member"; ?>
+
+                                <?php endif; ?>
+
+                                </td>
+
+                                <td>
+
+                                    <span class="badge badge-success badge-md">
+                                        <?php if ($m['is_active'] == '1') :
+                                            echo "Aktif"; ?>
+                                    </span>
+
+                                <?php else : echo "Tidak Aktif"; ?>
+
+                                <?php endif; ?>
+
+                                </td>
+
 
                                 <td>
                                     <a href="" class=" badge badge-pill badge-success">edit</a>
@@ -49,7 +75,9 @@
         </div>
     </div>
 
-    <!-- Modal -->
+    <!-- Modal
+    Tambah User -->
+
     <div class="modal fade" id="newRoleModal" tabindex="-1" aria-labelledby="newRoleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
