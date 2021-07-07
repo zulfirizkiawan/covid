@@ -7,8 +7,9 @@ class Admin extends CI_Controller
     {
         parent::__construct();
         is_logged_in();
+        $this->load->model('User_model', 'user');
+        $this->load->model('Menu_model', 'menu');
         $this->load->model('Admin_model');
-        $this->load->model('User_model','user');
     }
 
 
@@ -18,10 +19,10 @@ class Admin extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $data['jumlah_transaksi'] = $this->Admin_model->jumlah_transaksi();
-        $data['jumlah_customer'] = $this->Admin_model->jumlah_customer();
-        $data['paket_rumah'] = $this->Admin_model->paket_rumah();
-        $data['paket_hotel'] = $this->Admin_model->paket_hotel();
+        $data['jumlah_positif'] = $this->Admin_model->jumlah_positif();
+        $data['jumlah_sembuh'] = $this->Admin_model->jumlah_sembuh();
+        $data['jumlah_meninggal'] = $this->Admin_model->jumlah_meninggal();
+        $data['jumlah_semua'] = $this->Admin_model->jumlah_semua();
         // $data['jumlah_paket_rumah'] = $this->Admin_model->jumlah_paket_rumah();
         // $data['jumlah_paket_hotel'] = $this->Admin_model->jumlah_paket_hotel();
 
@@ -31,7 +32,7 @@ class Admin extends CI_Controller
         $this->load->view('admin/index', $data);
         $this->load->view('templates/footer_ad');
     }
-    
+
 
     public function transaksi()
     {
@@ -47,57 +48,10 @@ class Admin extends CI_Controller
         $this->load->view('admin/transaksi', $data);
     }
 
-    public function karyawan()
-    {
-        $data['title'] = 'Management User';
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
+    
 
-        $data['karyawans'] = $this->Admin_model->karyawans()->result_array();
+    
 
-        $this->load->view('templates/header_ad', $data);
-        $this->load->view('templates/sidebar_ad', $data);
-        $this->load->view('templates/topbar_ad', $data);
-        $this->load->view('user/index', $data);
-        $this->load->view('templates/footer_ad');
-    }
-
-    public function regis()
-    {
-
-        $this->form_validation->set_rules('name', 'Name', 'required|trim');
-        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[user.email]', [
-            'is_unique' => 'This email has already registerd'
-
-        ]);
-        // is_unique[user.email]
-        $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[3]|matches[password2]', [
-            'matches' => 'Password dont match',
-            'min_length' => 'Password to short'
-        ]);
-        $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]');
-
-        if ($this->form_validation->run() == false) {
-            $data['title'] = 'Pendaftaran';
-            $this->load->view('templates/auth_header_2', $data);
-            $this->load->view('admin/regis');
-            $this->load->view('templates/auth_footer');
-        } else {
-            $data = [
-                'name' => htmlspecialchars($this->input->post('name', true)),
-                'email' => htmlspecialchars($this->input->post('email', true)),
-                'gambar' => 'default.jpg',
-                'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
-                'role_id' => 1,
-                'is_active' => 1,
-                'date_created' => time()
-            ];
-
-            $this->db->insert('user', $data);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Berhasil Mendaftar</div>');
-            redirect('user/index');
-        }
-    }
     public function role()
     {
         $data['title'] = 'Role';
@@ -105,14 +59,31 @@ class Admin extends CI_Controller
         $this->session->userdata('email')])->row_array();
         // echo 'selamat datang ' . $data['user']['name'];
 
-
+        $this->form_validation->set_rules('role', 'Role Name', 'required');
         $data['role'] = $this->db->get('user_role')->result_array();
 
-        $this->load->view('templates/header_ad', $data);
-        $this->load->view('templates/sidebar_ad', $data);
-        $this->load->view('templates/topbar_ad', $data);
-        $this->load->view('admin/role', $data);
-        $this->load->view('templates/footer_ad');
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header_ad', $data);
+            $this->load->view('templates/sidebar_ad', $data);
+            $this->load->view('templates/topbar_ad', $data);
+            $this->load->view('admin/role', $data);
+            $this->load->view('templates/footer_ad');
+        } else {
+            $role_name = $this->input->post('role');
+            $data = [
+                'role' => $role_name
+            ];
+            $user_role = $this->db->get_where('user_role', ['role' => $role_name]);
+
+            if ($user_role->num_rows() < 1) {
+                $this->db->insert('user_role', $data);
+                $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New Role Added!</div>');
+                redirect('admin/role');
+            } else {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">This role is exist!</div>');
+                redirect('admin/role');
+            }
+        }
     }
 
     public function roleaccess($role_id)

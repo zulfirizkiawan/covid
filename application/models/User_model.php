@@ -39,5 +39,15 @@ class User_model extends CI_Model
     //     $querys = $this->db->get();
     //     return $querys;
 
-    // }	
+    // }
+
+    public function karyawans()
+	{
+		$this->db->select('*');
+        $this->db->from('user');
+        $this->db->join('user_role', 'user_role.id = user.role_id');
+        // $this->db->where('role_id', 1);
+        
+        return $this->db->get();
+    }	
 }

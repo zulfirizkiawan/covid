@@ -40,47 +40,16 @@ class Admin_model extends CI_Model
 	{
 		$this->db->select('*');
         $this->db->from('user');
-        $this->db->where('role_id', 1);
+        $this->db->join('user_role', 'user_role.id = user.role_id');
+        // $this->db->where('role_id', 1);
         
         return $this->db->get();
     }
 
    
 
-    function jumlah_transaksi()
-    {
-        $this->db->select('*');
-        $this->db->from('tbl_detail_order');
-        
-        return $this->db->get()->num_rows();
-    }
+       
     
-    function jumlah_customer()
-    {
-        $this->db->select('*');
-        $this->db->from('user');
-        $this->db->where('role_id', 2);
-        
-        return $this->db->get()->num_rows();
-    }
-    
-    function paket_rumah()
-    {
-        $this->db->select('*');
-        $this->db->from('tbl_produk');
-        $this->db->where('kategori', 1);
-        
-        return $this->db->get()->num_rows();
-    }
-
-    function paket_hotel()
-    {
-        $this->db->select('*');
-        $this->db->from('tbl_produk');
-        $this->db->where('kategori', 2);
-        
-        return $this->db->get()->num_rows();
-    }
 
     public function get_produk_kategori($kategori)
 	{
@@ -92,10 +61,42 @@ class Admin_model extends CI_Model
 		return $query->result_array();
 	}
     
-    // public function create($data_products){
-    //     //Query INSERT INTO
-    //     $this->db->insert('tbl_produk', $data_products);
-    // }
+    
+    // Dashboard
+    function jumlah_positif()
+    {
+        $this->db->select('*');
+        $this->db->from('datamaster');
+        $this->db->where('status_id', 1);
+        
+        return $this->db->get()->num_rows();
+    }
+    
+    function jumlah_sembuh()
+    {
+        $this->db->select('*');
+        $this->db->from('datamaster');
+        $this->db->where('status_id', 2);
+        
+        return $this->db->get()->num_rows();
+    }
 
+    function jumlah_meninggal()
+    {
+        $this->db->select('*');
+        $this->db->from('datamaster');
+        $this->db->where('status_id', 3);
+        
+        return $this->db->get()->num_rows();
+    }
+
+    function jumlah_semua()
+    {
+        $this->db->select('*');
+        $this->db->from('datamaster');
+        // $this->db->where('status_id');
+        
+        return $this->db->get()->num_rows();
+    }
 }
 

@@ -36,17 +36,7 @@
                                     <img style="border-radius: 5px;" src="<?= base_url('assets/img/profile/') . $m['image']; ?>" alt="" width="75px">
                                 </td>
 
-                                <td>
-                                    <span class="badge badge-success badge-md">
-                                        <?php if ($m['role_id'] == '1') :
-                                            echo "Administrator"; ?>
-                                    </span>
-
-                                <?php else : echo "Member"; ?>
-
-                                <?php endif; ?>
-
-                                </td>
+                                <td><?= $m['role']; ?></td>
 
                                 <td>
 
@@ -87,17 +77,17 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="<?= base_url('admin/role'); ?>" method="post">
+                <form action="<?= base_url('user/regis'); ?>" method="post">
                     <div class="modal-body">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Lengkap">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Nama Lengkap">
                         </div>
 
                         <div class="form-group">
                             <input type="text" class="form-control" id="email" name="email" placeholder="Email">
                         </div>
 
-                        <div class="form-group">
+                        <!-- <div class="form-group">
 
                             <div class="custom-file">
                                 <input type="file" name="image" id="image" class="custom-file-input">
@@ -112,28 +102,28 @@
                                 <img src="<?= base_url('assets/img/profile/') . $user['image']; ?>" class="img-thumbnail">
                             </div>
 
-                        </div>
+                        </div> -->
 
                         <div class="form-group">
-                            <input type="text" class="form-control" id="password" name="password" placeholder="Password">
+                            <input type="text" class="form-control" id="password1" name="password1" placeholder="Password">
                         </div>
 
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <select name="menu_id" id="menu_id" class="form-control">
                                 <option value="">Select Menu</option>
                                 <?php foreach ($menu as $m) : ?>
                                     <option value="<?= $m['id']; ?>"><?= $m['menu']; ?></option>
                                 <?php endforeach; ?>
                             </select>
-                        </div>
-                        <div class="form-group">
+                        </div> -->
+                        <!-- <div class="form-group">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="1" id="is_active" name="is_active" checked>
                                 <label class="form-check-label" for="is_active">
                                     Active?
                                 </label>
                             </div>
-                        </div>
+                        </div> -->
 
                     </div>
                     <div class="modal-footer">
@@ -153,7 +143,7 @@
 <!-- End of Main Content -->
 
 <!-- Modal -->
-<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -162,7 +152,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?= base_url('menu'); ?>" method="post">
+            <form action="<?= base_url('user/regis'); ?>" method="post">
                 <div class="modal-body">
                     <div class="form-group">
                         <input type="text" class="form-control" id="menu" name="menu" placeholder="Menu Name">
@@ -175,7 +165,7 @@
             </form>
         </div>
     </div>
-</div> -->
+</div>
 
 <div class="modal fade" id="deleteMenu" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
