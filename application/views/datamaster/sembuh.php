@@ -16,6 +16,7 @@
                     <thead>
                         <tr>
                             <th>No</th>
+                            <th>No_eury</th>
                             <th>Nama</th>
                             <th>Nik</th>
                             <th>Jenis Kelamin</th>
@@ -31,6 +32,7 @@
                         <tr>
                             <th scope="row"><?= $i ?></th>
                             
+                            <td><?= $m['id']; ?></td>
                             <td><?= $m['nama']; ?></td>
                             <td><?= $m['nik']; ?></td>
                             <td><?= $m['jk']; ?></td>

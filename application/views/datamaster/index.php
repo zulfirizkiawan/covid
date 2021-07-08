@@ -20,6 +20,7 @@
                     <thead>
                         <tr>
                             <th>No</th>
+                            <th>No_query</th>
                             <th>Nama</th>
                             <th>Nik</th>
                             <th>Jenis Kelamin</th>
@@ -35,14 +36,15 @@
                             <tr>
                                 <th scope="row"><?= $i ?></th>
 
+                                <td><?= $m['id']; ?></td>
                                 <td><?= $m['nama']; ?></td>
                                 <td><?= $m['nik']; ?></td>
                                 <td><?= $m['jk']; ?></td>
                                 <td><?= $m['tempat_lahir']; ?>, <?= $m['tgl_lahir']; ?></td>
                                 <td><?= $m['alamat']; ?></td>
-                                <td><?= $m['status']; ?></td>
+                                <td><?= $m['status_id']; ?></td>
                                 <td>
-                                    <a href="" class="badge badge-pill badge-success">edit</a>
+                                    <a href="<?= base_url('datamaster/editdata/' . $m['id']); ?>" class="badge badge-success">Edit</a>
                                     <a href="" class="badge badge-pill badge-danger">delete</a>
                                 </td>
                             </tr>

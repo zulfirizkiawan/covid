@@ -16,6 +16,7 @@ class Datamaster extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
+        // $data['positif'] = $this->db->get('datamaster')->result_array();
         $data['positif'] = $this->Datamaster_model->status_positif()->result_array();
         $data['status'] = $this->db->get('status_covid')->result_array();
         // validation

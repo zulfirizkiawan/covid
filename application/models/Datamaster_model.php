@@ -5,9 +5,9 @@ class Datamaster_model extends CI_Model
 {
     public function status_positif()
 	{
-		$this->db->select('*');
+		$this->db->select('datamaster.*, status_covid.id AS status_covid_id');
         $this->db->from('datamaster');
-        $this->db->join('status_covid', 'status_covid.id = datamaster.status_id' );
+        $this->db->join('status_covid', 'datamaster.status_id = status_covid.id' );
         // $this->db->join('tbl_produk', 'tbl_detail_order.produk=tbl_produk.id_produk','left');
         $this->db->where('status_id', 1);
         

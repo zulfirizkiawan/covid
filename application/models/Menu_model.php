@@ -21,7 +21,7 @@ class Menu_model extends CI_Model
         $querySubMenu = "SELECT * FROM user_sub_menu  WHERE menu_id = $menuId AND is_active = 1";
         return $this->db->query($querySubMenu)->result_array();
     }
-    // User Menu
+    // User Menu 
     public function getUserMenuAll()
     {
         return $this->db->get_where('user_menu', ['id !=' => 1])->result_array();
