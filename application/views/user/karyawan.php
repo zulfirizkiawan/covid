@@ -30,7 +30,7 @@
                             <tr>
                                 <th scope="row"><?= $i ?></th>
 
-                                <td><?= $m['name']; ?></td>
+                                <td><?= $m['id']; ?></td>
                                 <td><?= $m['email']; ?></td>
                                 <td>
                                     <img style="border-radius: 5px;" src="<?= base_url('assets/img/profile/') . $m['image']; ?>" alt="" width="75px">
@@ -53,7 +53,7 @@
 
 
                                 <td>
-                                    <a href="" class=" badge badge-pill badge-success">edit</a>
+                                    <a href="<?= base_url('user/edit/' . $m['id']); ?>" class=" badge badge-pill badge-success">edit</a>
                                     <a href="" class="badge badge-pill badge-danger">delete</a>
                                 </td>
                             </tr>

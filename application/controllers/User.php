@@ -71,6 +71,8 @@ class User extends CI_Controller
          $name = $this->input->post('name');
          // $username = $this->input->post('username');
          $email = $this->input->post('email');
+         $email = $this->input->post('email');
+         
 
          // cek jika gambar diubah
          $upload_img = $_FILES['image']['name'];
@@ -93,10 +95,15 @@ class User extends CI_Controller
             }
          }
 
-         $this->db->set([
+         $tesss = $this->db->set([
+            'name' => $name,
+            'email' => $email,
+            'name' => $name,
             'name' => $name,
             // 'username' => $username
          ]);
+         var_dump($tesss);
+         die;
          $this->db->where('email', $email);
          $this->db->update('user');
 

@@ -43,20 +43,35 @@
                         <!-- Email -->
                         <div class="form-group"><label>Email</label>
                             <input class="form-control"  name="email" id="email" type="email" value="<?= $user['email']; ?>" readonly>
+                            <?= form_error(
+                                'email',
+                                '<small class="text-danger pl-3">',
+                                '</small>'
+                            ); ?>
                         </div>
 
                         <!-- Password -->
                         <div class="form-group"><label>Password</label>
-                            <input class="form-control"  name="password" id="password" type="password" value="">
+                            <input class="form-control"  name="password" id="password" type="password" value="<?=$user['email']; ?>">
+                            <?= form_error(
+                                'password',
+                                '<small class="text-danger pl-3">',
+                                '</small>'
+                            ); ?>
                         </div>
 
                         <!-- Level -->
                         <div class="form-group"><label>Role</label>
                             <select name="level" class="form-control">
                                 <option value="Admin">Administrasi</option>
-                                <option value="Member">Petugas</option>
+                                <option value="Member">Member</option>
 
                             </select>
+                            <?= form_error(
+                                'level',
+                                '<small class="text-danger pl-3">',
+                                '</small>'
+                            ); ?>
                         </div>
 
                         <!-- Status -->
@@ -65,6 +80,11 @@
                                 <option value="Aktif">Aktif</option>
                                 <option value="Tidak Aktif">Tidak Aktif</option>
                             </select>
+                            <?= form_error(
+                                'status',
+                                '<small class="text-danger pl-3">',
+                                '</small>'
+                            ); ?>
                         </div>
 
                     </div>
