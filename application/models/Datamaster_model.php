@@ -40,4 +40,11 @@ class Datamaster_model extends CI_Model
     {
         return $this->db->get_where('datamaster', ['id' => $status_ids])->row_array();
     }
+
+    public function edits($id)
+    {
+        $this->db->where('id', $id);
+        return $this->db->get('datamaster')->row_array();
+    }
+
 }
