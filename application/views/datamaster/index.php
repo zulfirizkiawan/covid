@@ -97,18 +97,23 @@
                         <input type="text" class="form-control" id="nik" name="nik" placeholder="Nomer NIK">
                     </div>
                 </div>
-                <!-- FORM [ TEMPAT LAHIR ] -->
-                <div class="modal-body">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="Tempat Lahir">
+
+                <div class="d-sm-flex align-items-center justify-content-between mb-0">
+                    <!-- FORM [ TEMPAT LAHIR ] -->
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="Tempat Lahir">
+                        </div>
                     </div>
-                </div>
-                <!-- FORM [ TANGGAL LAHIR ] -->
-                <div class="modal-body">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="datepicker"  name="tgl_lahir" autocomplete="off" placeholder="tanggal Lahir">
+                    <!-- FORM [ TANGGAL LAHIR ] -->
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input type="text" class="form-control border-1 small" id="datepicker" name="tgl_lahir" autocomplete="off" placeholder="tanggal Lahir">
+                        </div>
                     </div>
+
                 </div>
+
                 <!-- FORM [ ALAMAT ] -->
                 <div class="modal-body">
                     <div class="form-group">
