@@ -19,10 +19,15 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/js/simplyCountdown.js"></script>
+<script src="<?= base_url(); ?>assets/plugin/datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 <!-- Main -->
 <script src="<?php echo base_url(); ?>assets/js/main.js"></script>
 
-
+<script>
+$('#datepicker').datepicker({
+    autoclose: true
+});
+</script>
 
 </body>
 

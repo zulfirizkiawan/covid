@@ -49,7 +49,6 @@
 <script src="<?= base_url('assets/') ?>js/sb-admin-2.min.js"></script>
 
 <script>
-
     // lupa untuk apa
     $('.form-check-input').on('click', function() {
         const menuId = $(this).data('menu');
@@ -77,14 +76,19 @@
 
 <!-- Placed at the end of the document so the pages load faster -->
 
-    <script src="<?php echo base_url()?>assets/js/arf.js"></script>
-    <script src="<?php echo base_url()?>assets/js/prs.js"></script>
-    <script src="<?php echo base_url()?>assets/js/validation.js"></script>
-    <script src="<?php echo base_url()?>assets/jquery/jquery-ui.js"></script>
-    <script src="<?php echo base_url()?>assets/jquery/jquery.validate.min.js"></script>
+<script src="<?php echo base_url() ?>assets/js/arf.js"></script>
+<script src="<?php echo base_url() ?>assets/js/prs.js"></script>
+<script src="<?php echo base_url() ?>assets/js/validation.js"></script>
+<script src="<?php echo base_url() ?>assets/jquery/jquery-ui.js"></script>
+<script src="<?php echo base_url() ?>assets/jquery/jquery.validate.min.js"></script>
+<script src="<?= base_url(); ?>assets/plugin/datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<script src="<?php echo base_url() ?>assets/bootstrap/js/bootstrap.min.js"></script>
 
-    <script src="<?php echo base_url()?>assets/bootstrap/js/bootstrap.min.js"></script>
-
+<script>
+    $('#datepicker').datepicker({
+        autoclose: true
+    });
+</script>
 </body>
 
 </html>

@@ -86,8 +86,8 @@
                     <div class="form-group">
                         <select name="jk" id="jk" class="form-control">
                             <option value="">Jenis Kelamin Anda</option>
-                                <option value="Laki-Laki">Laki-Laki</option>
-                                <option value="Perempuan">Perempuan</option>
+                            <option value="Laki-Laki">Laki-Laki</option>
+                            <option value="Perempuan">Perempuan</option>
                         </select>
                     </div>
                 </div>
@@ -106,7 +106,7 @@
                 <!-- FORM [ TANGGAL LAHIR ] -->
                 <div class="modal-body">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="tgl_lahir" name="tgl_lahir" placeholder="tanggal Lahir">
+                        <input type="text" class="form-control" id="datepicker"  name="tgl_lahir" autocomplete="off" placeholder="tanggal Lahir">
                     </div>
                 </div>
                 <!-- FORM [ ALAMAT ] -->
