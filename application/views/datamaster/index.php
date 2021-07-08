@@ -20,7 +20,6 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>No_query</th>
                             <th>Nama</th>
                             <th>Nik</th>
                             <th>Jenis Kelamin</th>
@@ -34,15 +33,13 @@
                         <?php $i = 1; ?>
                         <?php foreach ($positif as $m) : ?>
                             <tr>
-                                <th scope="row"><?= $i ?></th>
-
-                                <td><?= $m['id']; ?></td>
+                                <th scope="row"><?= $i ?>
                                 <td><?= $m['nama']; ?></td>
                                 <td><?= $m['nik']; ?></td>
                                 <td><?= $m['jk']; ?></td>
                                 <td><?= $m['tempat_lahir']; ?>, <?= $m['tgl_lahir']; ?></td>
                                 <td><?= $m['alamat']; ?></td>
-                                <td><?= $m['status_id']; ?></td>
+                                <td><?= $m['status']; ?></td>
                                 <td>
                                     <a href="<?= base_url('datamaster/editdata/' . $m['id']); ?>" class="badge badge-success">Edit</a>
                                     <a href="" class="badge badge-pill badge-danger">delete</a>
