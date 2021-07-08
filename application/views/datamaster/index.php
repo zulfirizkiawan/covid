@@ -108,7 +108,7 @@
                     <!-- FORM [ TANGGAL LAHIR ] -->
                     <div class="modal-body">
                         <div class="form-group">
-                            <input type="text" class="form-control border-1 small" id="datepicker" name="tgl_lahir" autocomplete="off" placeholder="tanggal Lahir">
+                            <input type="text" class="form-control" id="datepicker" name="tgl_lahir" autocomplete="off" placeholder="tanggal Lahir">
                         </div>
                     </div>
 
