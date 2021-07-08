@@ -142,4 +142,14 @@ class Datamaster extends CI_Controller
             redirect('datamaster/index');
         }
     }
+
+    public function delete($status_ids)
+    {
+        $role = $this->Datamaster_model->getsdelete($status_ids);
+
+        $this->db->delete('datamaster', ['id' => $status_ids]);
+        $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . $role['nama'] . ' role is deleted!</div>');
+        redirect('datamaster/index');
+    }
 }
+
