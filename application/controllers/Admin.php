@@ -9,7 +9,7 @@ class Admin extends CI_Controller
         is_logged_in();
         $this->load->model('User_model', 'user');
         $this->load->model('Menu_model', 'menu');
-        $this->load->model('Admin_model');
+        $this->load->model('Admin_model', 'admin');
     }
 
 
@@ -124,16 +124,16 @@ class Admin extends CI_Controller
     {
         $data['title'] = 'Edit Role';
         $data['user'] = $this->user->getUserData();
-        $data['role'] = $this->admin->getUserRoleById($role_id);;
+        $data['role'] = $this->admin->getUserRoleById($role_id);
 
         $this->form_validation->set_rules('role', 'Role Name', 'required');
 
         if ($this->form_validation->run() == false) {
-            $this->load->view('templates/header', $data);
-            $this->load->view('templates/sidebar', $data);
-            $this->load->view('templates/topbar', $data);
+            $this->load->view('templates/header_ad', $data);
+            $this->load->view('templates/sidebar_ad', $data);
+            $this->load->view('templates/topbar_ad', $data);
             $this->load->view('admin/edit-role', $data);
-            $this->load->view('templates/footer');
+            $this->load->view('templates/footer_ad');
         } else {
             $role_name = $this->input->post('role');
             $user_role = $this->db->get_where('user_role', ['role' => $role_name]);
@@ -158,7 +158,4 @@ class Admin extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . $role['role'] . ' role is deleted!</div>');
         redirect('admin/role');
     }
-
-
-
 }
