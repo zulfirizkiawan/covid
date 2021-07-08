@@ -33,8 +33,7 @@
                         <?php $i = 1; ?>
                         <?php foreach ($positif as $m) : ?>
                             <tr>
-                                <th scope="row"><?= $i ?></th>
-
+                                <th scope="row"><?= $i ?>
                                 <td><?= $m['nama']; ?></td>
                                 <td><?= $m['nik']; ?></td>
                                 <td><?= $m['jk']; ?></td>
@@ -42,7 +41,7 @@
                                 <td><?= $m['alamat']; ?></td>
                                 <td><?= $m['status']; ?></td>
                                 <td>
-                                    <a href="" class="badge badge-pill badge-success">edit</a>
+                                    <a href="<?= base_url('datamaster/editdata/' . $m['id']); ?>" class="badge badge-success">Edit</a>
                                     <a href="" class="badge badge-pill badge-danger">delete</a>
                                 </td>
                             </tr>

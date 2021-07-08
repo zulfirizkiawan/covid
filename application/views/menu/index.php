@@ -21,6 +21,8 @@
                             <thead>
                                 <tr>
                                     <th scope="col">No</th>
+
+                                    <th scope="col">Nos</th>
                                     <th scope="col">Menu</th>
                                     <th scope="col">Action</th>
                                 </tr>
@@ -31,6 +33,8 @@
                                 foreach ($menu as $m) : ?>
                                     <tr>
                                         <th scope="row"><?= $i; ?></th>
+
+                                        
                                         <td><?= $m['menu'] ?></td>
                                         <td>
                                             <a href="<?= base_url('menu/editmenu/' . $m['id']); ?>" class="badge badge-success">Edit</a>
