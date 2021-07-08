@@ -260,14 +260,14 @@ class Admin extends CI_Controller
     {
         $data['title'] = 'Edit Role';
         $data['user'] = $this->user->getUserData();
-        $data['role'] = $this->admin->getUserRoleById($role_id);;
+        $data['role'] = $this->Admin_model->getUserRoleById($role_id);;
 
         $this->form_validation->set_rules('role', 'Role Name', 'required');
 
         if ($this->form_validation->run() == false) {
-            $this->load->view('templates/header', $data);
-            $this->load->view('templates/sidebar', $data);
-            $this->load->view('templates/topbar', $data);
+            $this->load->view('templates/header_ad', $data);
+            $this->load->view('templates/sidebar_ad', $data);
+            $this->load->view('templates/topbar_ad', $data);
             $this->load->view('admin/edit-role', $data);
             $this->load->view('templates/footer');
         } else {
@@ -288,7 +288,7 @@ class Admin extends CI_Controller
 
     public function deleterole($role_id)
     {
-        $role = $this->admin->getUserRoleById($role_id);
+        $role = $this->Admin_model->getUserRoleById($role_id);
 
         $this->db->delete('user_role', ['id' => $role_id]);
         $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . $role['role'] . ' role is deleted!</div>');
