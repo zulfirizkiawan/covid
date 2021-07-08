@@ -23,8 +23,6 @@ class Admin extends CI_Controller
         $data['jumlah_sembuh'] = $this->Admin_model->jumlah_sembuh();
         $data['jumlah_meninggal'] = $this->Admin_model->jumlah_meninggal();
         $data['jumlah_semua'] = $this->Admin_model->jumlah_semua();
-        // $data['jumlah_paket_rumah'] = $this->Admin_model->jumlah_paket_rumah();
-        // $data['jumlah_paket_hotel'] = $this->Admin_model->jumlah_paket_hotel();
 
         $this->load->view('templates/header_ad', $data);
         $this->load->view('templates/sidebar_ad', $data);
@@ -48,16 +46,11 @@ class Admin extends CI_Controller
         $this->load->view('admin/transaksi', $data);
     }
 
-    
-
-    
-
     public function role()
     {
         $data['title'] = 'Role';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
-        // echo 'selamat datang ' . $data['user']['name'];
 
         $this->form_validation->set_rules('role', 'Role Name', 'required');
         $data['role'] = $this->db->get('user_role')->result_array();
@@ -165,4 +158,7 @@ class Admin extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . $role['role'] . ' role is deleted!</div>');
         redirect('admin/role');
     }
+
+
+
 }
