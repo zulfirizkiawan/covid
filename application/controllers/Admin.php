@@ -30,7 +30,7 @@ class Admin extends CI_Controller
         $this->load->view('admin/index', $data);
         $this->load->view('templates/footer_ad');
     }
-
+ 
 
     public function transaksi()
     {
@@ -119,7 +119,7 @@ class Admin extends CI_Controller
         }
         $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> Access Changed! </div>');
     }
-
+ 
     public function editrole($role_id)
     {
         $data['title'] = 'Edit Role';

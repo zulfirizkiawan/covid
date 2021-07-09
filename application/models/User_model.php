@@ -5,10 +5,16 @@ class User_model extends CI_Model
 {
     // Users Data
     public function getUserData()
-    {
+    { 
         $query = $this->db->get_where('user', ['email' => $this->session->userdata('email')]);
         return $query->row_array();
     }
+
+    public function getUserById($karyawan_id)
+    {
+        return $this->db->get_where('user', ['id' => $karyawan_id])->row_array();
+    }
+
     public function getUserDataAll()
     {
         $query = $this->db->get('data_pegawai');
@@ -40,7 +46,7 @@ class User_model extends CI_Model
     //     return $querys;
 
     // }
-
+ 
     public function karyawans()
 	{
 		$this->db->select('*');

@@ -7,7 +7,7 @@ class User extends CI_Controller
    {
       parent::__construct();
       is_logged_in();
-      $this->load->model('User_model');
+      $this->load->model('User_model', 'user');
       $this->load->model('Admin_model');
    }
 
@@ -60,7 +60,7 @@ class User extends CI_Controller
 
       $this->form_validation->set_rules('name', 'Name', 'trim|required');
       // $this->form_validation->set_rules('username', 'Username', 'trim|required');
-
+ 
       if ($this->form_validation->run() == false) {
          $this->load->view('templates/header_ad', $data);
          $this->load->view('templates/sidebar_ad', $data);
@@ -105,6 +105,62 @@ class User extends CI_Controller
       }
    }
 
+
+   public function editkaryawan()
+   {
+      $data['title'] = 'Edit Karyawan';
+      // model
+      $data['user'] = $this->user->getUserData();
+
+      $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+      $this->form_validation->set_rules('name', 'Name', 'trim|required');
+      // $this->form_validation->set_rules('username', 'Username', 'trim|required');
+ 
+      if ($this->form_validation->run() == false) {
+         $this->load->view('templates/header_ad', $data);
+         $this->load->view('templates/sidebar_ad', $data);
+         $this->load->view('templates/topbar_ad', $data);
+         $this->load->view('user/edit-karyawan', $data);
+         $this->load->view('templates/footer_ad');
+      } else {
+         $name = $this->input->post('name');
+         // $username = $this->input->post('username');
+         $email = $this->input->post('email');
+
+         // cek jika gambar diubah
+         $upload_img = $_FILES['image']['name'];
+
+         if ($upload_img) {
+            $config['upload_path'] = './assets/img/profile/';
+            $config['allowed_types'] = 'gif|jpg|png';
+            $config['max_size']     = '2048';
+
+            $this->load->library('upload', $config);
+            if ($this->upload->do_upload('image')) {
+               $old_img = $data['user']['image'];
+               if ($old_img != 'default.jpg') {
+                  unlink(FCPATH . 'assets/img/profile/' . $old_img);
+               }
+               $new_img = $this->upload->data('file_name');
+               $this->db->set('image', $new_img);
+            } else {
+               echo $this->upload->display_errors();
+            }
+         }
+
+         $this->db->set([
+            'name' => $name,
+            // 'username' => $username
+         ]);
+         $this->db->where('email', $email);
+         $this->db->update('user');
+
+         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Your profile has been updated!</div>');
+         redirect('user/karyawan');
+      }
+   }
+
    public function detail_pesanan()
    {
        $data['title'] = 'Detail Pesanan';
@@ -136,6 +192,15 @@ class User extends CI_Controller
         $this->load->view('templates/topbar_ad', $data);
         $this->load->view('user/karyawan', $data);
         $this->load->view('templates/footer_ad');
+    }
+
+    public function deletekaryawan($karyawan_id)
+    {
+        $karyawan = $this->user->getUserById($karyawan_id);
+
+        $this->db->delete('user', ['id' => $karyawan_id]);
+        $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . $karyawan['name'] . ' role is deleted!</div>');
+        redirect('user/karyawan');
     }
 
     public function regis()

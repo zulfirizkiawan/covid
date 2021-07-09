@@ -2,7 +2,7 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 class Datamaster_model extends CI_Model
-{
+{ 
     public function status_positif()
 	{
 		$this->db->select('*');

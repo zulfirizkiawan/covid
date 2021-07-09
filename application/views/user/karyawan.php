@@ -46,15 +46,15 @@
                                     </span>
 
                                 <?php else : echo "Tidak Aktif"; ?>
-
+ 
                                 <?php endif; ?>
 
                                 </td>
 
 
                                 <td>
-                                    <a href="" class=" badge badge-pill badge-success">edit</a>
-                                    <a href="" class="badge badge-pill badge-danger">delete</a>
+                                <a href="<?= base_url('user/editkaryawan/' . $m['id']); ?>" class="badge badge-success">Edit</a>
+                                    <a href="<?= base_url('user/deletekaryawan/') . $m['id']; ?>" class="badge badge-danger" data-toggle="modal" data-target="#deleteRole">Delete</a>
                                 </td>
                             </tr>
                             <?php $i++; ?>
@@ -166,8 +166,8 @@
         </div>
     </div>
 </div>
-
-<div class="modal fade" id="deleteMenu" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+ 
+<div class="modal fade" id="deleteRole" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -176,10 +176,10 @@
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <div class="modal-body">Are you sure want to delete <?= $m['menu']; ?> menu?</div>
+            <div class="modal-body">Are you sure want to delete <?= $m['name']; ?> menu?</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="<?= base_url('menu/deletemenu/') . $m['id']; ?>">Delete</a>
+                <a class="btn btn-primary" href="<?= base_url('user/deletekaryawan/') . $m['id']; ?>">Delete</a>
             </div>
         </div>
     </div>
