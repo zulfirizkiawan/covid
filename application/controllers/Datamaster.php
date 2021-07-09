@@ -58,7 +58,7 @@ class Datamaster extends CI_Controller
             $this->db->insert('datamaster', $data);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New Data Added!</div>');
             redirect('datamaster/index');
-            }
+        }
     }
 
     public function sembuh()
@@ -108,7 +108,7 @@ class Datamaster extends CI_Controller
             $this->db->insert('datamaster', $data);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New Data Added!</div>');
             redirect('datamaster/sembuh');
-            }
+        }
     }
 
     public function meninggal()
@@ -158,7 +158,7 @@ class Datamaster extends CI_Controller
             $this->db->insert('datamaster', $data);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New Data Added!</div>');
             redirect('datamaster/meninggal');
-            }
+        }
     }
     public function editdata($data_id)
     {
@@ -195,7 +195,7 @@ class Datamaster extends CI_Controller
             $alamat = $this->input->post('alamat');
             $status_id = $this->input->post('status_id');
 
-             $data_sub = [
+            $data_sub = [
                 'nama' => $nama,
                 'jk' => $jk,
                 'nik' => $nik,
@@ -209,7 +209,7 @@ class Datamaster extends CI_Controller
             $this->db->set($data_sub);
             $this->db->where('id', $data_id);
             $this->db->update('datamaster');
-            
+
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Edit Data Success!</div>');
             redirect('datamaster/index');
         }
@@ -223,6 +223,7 @@ class Datamaster extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . $role['nama'] . ' data is deleted!</div>');
         redirect('datamaster/index');
     }
+
     public function editdatasembuh($data_id)
     {
         $data['title'] = 'Edit Data Positif Covid';
@@ -256,7 +257,7 @@ class Datamaster extends CI_Controller
             $alamat = $this->input->post('alamat');
             $status_id = $this->input->post('status_id');
 
-             $data_sub = [
+            $data_sub = [
                 'nama' => $nama,
                 'jk' => $jk,
                 'nik' => $nik,
@@ -270,7 +271,7 @@ class Datamaster extends CI_Controller
             $this->db->set($data_sub);
             $this->db->where('id', $data_id);
             $this->db->update('datamaster');
-            
+
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Edit Data Success!</div>');
             redirect('datamaster/sembuh');
         }
@@ -284,6 +285,7 @@ class Datamaster extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . $role['nama'] . ' data is deleted!</div>');
         redirect('datamaster/sembuh');
     }
+    
     public function editdatameninggal($data_id)
     {
         $data['title'] = 'Edit Data Positif Covid';
@@ -317,7 +319,7 @@ class Datamaster extends CI_Controller
             $alamat = $this->input->post('alamat');
             $status_id = $this->input->post('status_id');
 
-             $data_sub = [
+            $data_sub = [
                 'nama' => $nama,
                 'jk' => $jk,
                 'nik' => $nik,
@@ -331,7 +333,7 @@ class Datamaster extends CI_Controller
             $this->db->set($data_sub);
             $this->db->where('id', $data_id);
             $this->db->update('datamaster');
-            
+
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Edit Data Success!</div>');
             redirect('datamaster/meninggal');
         }
@@ -346,4 +348,3 @@ class Datamaster extends CI_Controller
         redirect('datamaster/meninggal');
     }
 }
-

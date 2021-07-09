@@ -54,7 +54,7 @@
 
                                 <td>
                                     <a href="" class=" badge badge-pill badge-success">edit</a>
-                                    <a href="" class="badge badge-pill badge-danger">delete</a>
+                                    <a class="badge badge-danger" data-toggle="modal" data-target="#deleteRole-<?= $i ?>">Delete</a>
                                 </td>
                             </tr>
                             <?php $i++; ?>
@@ -167,20 +167,24 @@
     </div>
 </div>
 
-<div class="modal fade" id="deleteMenu" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Delete Menu</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">Are you sure want to delete <?= $m['menu']; ?> menu?</div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="<?= base_url('menu/deletemenu/') . $m['id']; ?>">Delete</a>
+<?php $i = 1; ?>
+<?php foreach ($karyawans as $mdelete) : ?>
+    <div class="modal fade" id="deleteRole-<?= $i; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete user</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Are you sure want to delete <?= $mdelete['name']; ?> ?</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="<?= base_url('user/deletekaryawan/') . $mdelete['id']; ?>">Delete</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
+    <?php $i++; ?>
+<?php endforeach; ?>
