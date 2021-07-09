@@ -37,7 +37,7 @@ class Datamaster_model extends CI_Model
     }
     
     public function getsdelete($status_ids)
-    {
+    { 
         return $this->db->get_where('datamaster', ['id' => $status_ids])->row_array();
     }
 
