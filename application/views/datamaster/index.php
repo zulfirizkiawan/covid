@@ -85,7 +85,7 @@
                     <div class="form-group">
                         <select name="jk" id="jk" class="form-control">
                             <option value="">Jenis Kelamin Anda</option>
-                            <option value="Laki-laki">Laki-laki</option>
+                            <option value="Laki-Laki">Laki-Laki</option>
                             <option value="Perempuan">Perempuan</option>
                         </select>
                     </div>
@@ -136,7 +136,7 @@
                 <!-- ACTION -->
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Tambah</button>
+                    <button type="submit" class="btn btn-primary">Add Role</button>
                 </div>
             </form>
         </div>
@@ -152,7 +152,7 @@
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <div class="modal-body">Are you sure want to delete <?= $m['nama']; ?> ?</div>
+            <div class="modal-body">Are you sure want to delete <?= $m['nama']; ?> nama?</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                 <a class="btn btn-primary" href="<?= base_url('menu/deletemenu/') . $m['id']; ?>">Delete</a>

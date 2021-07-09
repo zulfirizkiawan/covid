@@ -39,7 +39,7 @@ class Admin_model extends CI_Model
 
     public function karyawans()
 	{
-		$this->db->select('user.*, user_role.role AS role');
+		$this->db->select('*');
         $this->db->from('user');
         $this->db->join('user_role', 'user_role.id = user.role_id');
         // $this->db->where('role_id', 1);
