@@ -19,10 +19,10 @@ class Admin extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $data['jumlah_positif'] = $this->Admin_model->jumlah_positif();
-        $data['jumlah_sembuh'] = $this->Admin_model->jumlah_sembuh();
-        $data['jumlah_meninggal'] = $this->Admin_model->jumlah_meninggal();
-        $data['jumlah_semua'] = $this->Admin_model->jumlah_semua();
+        $data['jumlah_positif'] = $this->admin->jumlah_positif();
+        $data['jumlah_sembuh'] = $this->admin->jumlah_sembuh();
+        $data['jumlah_meninggal'] = $this->admin->jumlah_meninggal();
+        $data['jumlah_semua'] = $this->admin->jumlah_semua();
 
         $this->load->view('templates/header_ad', $data);
         $this->load->view('templates/sidebar_ad', $data);

@@ -7,12 +7,7 @@ class Admin_model extends CI_Model
     {
         return $this->db->get_where('user_role', ['id' => $role_id])->row_array();
     }
-<<<<<<< Updated upstream
 
-
-=======
-    
->>>>>>> Stashed changes
     
     public function getUserRoleAll()
     {
@@ -52,11 +47,6 @@ class Admin_model extends CI_Model
         
         return $this->db->get();
     }
-
-   
-
-       
-    
 
     public function get_produk_kategori($kategori)
 	{

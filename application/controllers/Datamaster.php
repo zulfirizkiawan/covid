@@ -16,6 +16,7 @@ class Datamaster extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
+        // $data['positif'] = $this->db->get('datamaster')->result_array();
         $data['positif'] = $this->Datamaster_model->status_positif()->result_array();
         $data['status'] = $this->db->get('status_covid')->result_array();
         // validation
@@ -364,5 +365,66 @@ class Datamaster extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . $role['nama'] . ' data is deleted!</div>');
         redirect('datamaster/meninggal');
 >>>>>>> Stashed changes
+    }
+    public function editdata($data_id)
+    {
+        $data['title'] = 'Edit Data Positif Covid';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        // $data['datapositif'] = $this->db->get('datamaster')->result_array();
+        // $data['positif'] = $this->db->get_where('datamaster', ['id' => $data_id])->row_array()
+        $data['positif'] = $this->db->get_where('datamaster', ['id' => $data_id])->row_array();
+        // var_dump($data);
+        // die;
+        $this->form_validation->set_rules('nama', 'Nama', 'required');
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required');
+        $this->form_validation->set_rules('nik', 'NIK', 'required');
+        $this->form_validation->set_rules('tempat_lahir', 'Tempat Lahir', 'required');
+        $this->form_validation->set_rules('tgl_lahir', 'Tanggal Lahir', 'required');
+        $this->form_validation->set_rules('status_id', 'Status', 'required');
+        $this->form_validation->set_rules('jk', 'Jenis Kelamin', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header_ad', $data);
+            $this->load->view('templates/sidebar_ad', $data);
+            $this->load->view('templates/topbar_ad', $data);
+            $this->load->view('datamaster/edit-positif', $data);
+            $this->load->view('templates/footer_ad', $data);
+        } else {
+            // $submenu_name = $this->input->post('nama');
+            $nama = $this->input->post('nama');
+            $jk = $this->input->post('jk');
+            $nik = $this->input->post('nik');
+            $tempat_lahir = $this->input->post('tempat_lahir');
+            $tgl_lahir = $this->input->post('tgl_lahir');
+            $alamat = $this->input->post('alamat');
+            $status_id = $this->input->post('status_id');
+
+             $data_sub = [
+                'nama' => $nama,
+                'jk' => $jk,
+                'nik' => $nik,
+                'tempat_lahir' => $tempat_lahir,
+                'tgl_lahir' => $tgl_lahir,
+                'alamat' => $alamat,
+                'status_id' => $status_id
+            ];
+            // var_dump($data_sub);
+            // die;
+            $this->db->set($data_sub);
+            $this->db->where('id', $data_id);
+            $this->db->update('datamaster');
+            
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Edit Submenu Success!</div>');
+            redirect('datamaster/index');
+        }
+    }
+
+    public function delete($status_ids)
+    {
+        $role = $this->Datamaster_model->getsdelete($status_ids);
+
+        $this->db->delete('datamaster', ['id' => $status_ids]);
+        $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . $role['nama'] . ' role is deleted!</div>');
+        redirect('datamaster/index');
     }
 }

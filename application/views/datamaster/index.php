@@ -33,8 +33,7 @@
                         <?php $i = 1; ?>
                         <?php foreach ($positif as $m) : ?>
                             <tr>
-                                <th scope="row"><?= $i ?></th>
-
+                                <th scope="row"><?= $i ?>
                                 <td><?= $m['nama']; ?></td>
                                 <td><?= $m['nik']; ?></td>
                                 <td><?= $m['jk']; ?></td>
@@ -42,7 +41,7 @@
                                 <td><?= $m['alamat']; ?></td>
                                 <td><?= $m['status']; ?></td>
                                 <td>
-                                    <a href="" class="badge badge-pill badge-success">edit</a>
+                                    <a href="<?= base_url('datamaster/editdata/' . $m['id']); ?>" class="badge badge-success">Edit</a>
                                     <a href="" class="badge badge-pill badge-danger">delete</a>
                                 </td>
                             </tr>
@@ -153,7 +152,7 @@
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <div class="modal-body">Are you sure want to delete <?= $m['menu']; ?> menu?</div>
+            <div class="modal-body">Are you sure want to delete <?= $m['nama']; ?> nama?</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                 <a class="btn btn-primary" href="<?= base_url('menu/deletemenu/') . $m['id']; ?>">Delete</a>
