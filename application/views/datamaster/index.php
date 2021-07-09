@@ -42,7 +42,7 @@
                                 <td><?= $m['status']; ?></td>
                                 <td>
                                     <a href="<?= base_url('datamaster/editdata/' . $m['id']); ?>" class="badge badge-success">Edit</a>
-                                    <a href="<?= base_url('datamaster/delete/') . $m['id']; ?>" class="badge badge-danger" data-toggle="modal" data-target="#deleteRole">Delete</a>
+                                    <a href="" class="badge badge-pill badge-danger">delete</a>
                                 </td>
                             </tr>
                             <?php $i++; ?>
@@ -143,11 +143,11 @@
     </div>
 </div>
 
-<div class="modal fade" id="deleteRole" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="deleteMenu" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Delete user</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Delete Menu</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
@@ -155,7 +155,7 @@
             <div class="modal-body">Are you sure want to delete <?= $m['nama']; ?> ?</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="<?= base_url('datamaster/delete/') . $m['id']; ?>">Delete</a>
+                <a class="btn btn-primary" href="<?= base_url('menu/deletemenu/') . $m['id']; ?>">Delete</a>
             </div>
         </div>
     </div>
