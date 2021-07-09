@@ -3,13 +3,13 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
     <?= $this->session->flashdata('message'); ?>
-    <?= form_open('datamaster/editdata/' . $positif['id']); ?>
+    <?= form_open('datamaster/editdatasembuh/' . $positif['id']); ?>
     <div class="modal-body">
         <div class="form-group">
             <label for="title">Nama</label>
             <input type="text" class="form-control" id="nama" name="nama" value="<?= $positif['nama']; ?>">
             <?= form_error('title', '<small class="text-danger pl-3">', '</small>'); ?>
-        </div> 
+        </div>
         
         <div class="form-group">
             <label for="nik">NIK</label>
@@ -19,18 +19,11 @@
 
         <div class="form-group">
             <label for="jk">Jenis Kelamin</label>
-            <select name="jk" class="form-control" required>
-                   <?php
-                        if($positif['jk']=="Laki-laki"){?>
-                            <option value="Laki-laki" selected> Laki-laki </option>
-                            <option value="Perempuan"> Perempuan </option>
-                        <?php }else{?>
-                                <option value="Laki-laki"> Laki-laki </option>
-                            <option value="Perempuan" selected> Perempuan </option>
-                        <?php }
-                   ?>
-                   
-                   </select>
+            <select name="jk" id="jk" class="form-control">
+                <option value="">Jenis Kelamin Anda</option>
+                <option value="Laki-Laki">Laki-Laki</option>
+                <option value="Perempuan">Perempuan</option>
+            </select>
             <?= form_error('jk', '<small class="text-danger pl-3">', '</small>'); ?>
         </div>
 
@@ -53,14 +46,8 @@
         </div>
         
         <div class="form-group">
-                <select name="status_id" id="status_id" class="form-control">
-                            <option value="">Status Kondisi</option>
-                            <?php foreach ($status as $s) : ?>
-                                <option value="<?= $s['id']; ?>"><?= $s['status']; ?></option>
-                            <?php endforeach; ?>
-                        </select>
             <label for="status_id">Status</label>
-            <!-- <input type="text" class="form-control" id="status_id" name="status_id" value="<?= $positif['status_id']; ?>"> -->
+            <input type="text" class="form-control" id="status_id" name="status_id" value="<?= $positif['status_id']; ?>">
             <?= form_error('status_id', '<small class="text-danger pl-3">', '</small>'); ?>
         </div>
     </div>
