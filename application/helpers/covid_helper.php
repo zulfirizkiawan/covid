@@ -58,6 +58,6 @@ function active_checks($is_active, $userid)
     $result = $CI->db->get('user');
     if ($result->num_rows() > 0) {
         return "checked='checked'";
-    
+
     }
 }
