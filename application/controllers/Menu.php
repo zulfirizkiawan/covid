@@ -118,7 +118,7 @@ class Menu extends CI_Controller
         $this->form_validation->set_rules('menu_id', 'Menu', 'required');
         $this->form_validation->set_rules('url', 'URL', 'required');
         $this->form_validation->set_rules('icon', 'Icon', 'required');
-
+ 
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header_ad', $data);
             $this->load->view('templates/sidebar_ad', $data);
@@ -141,6 +141,7 @@ class Menu extends CI_Controller
             redirect('menu/submenu');
         }
     }
+    
     public function deletesub($submenu_id)
     {
         $submenu = $this->db->get_where('user_sub_menu', ['id' => $submenu_id])->row_array();

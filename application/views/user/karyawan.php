@@ -53,7 +53,7 @@
 
 
                                 <td>
-                                    <a href="" class=" badge badge-pill badge-success">edit</a>
+                                <a href="<?= base_url('user/edituser/' . $m['id']); ?>" class="badge badge-success">Edit</a>
                                     <a class="badge badge-danger" data-toggle="modal" data-target="#deleteRole-<?= $i ?>">Delete</a>
                                 </td>
                             </tr>
@@ -87,7 +87,7 @@
                             <input type="text" class="form-control" id="email" name="email" placeholder="Email">
                         </div>
 
-                        <!-- <div class="form-group">
+                        <div class="form-group">
 
                             <div class="custom-file">
                                 <input type="file" name="image" id="image" class="custom-file-input">
@@ -102,7 +102,7 @@
                                 <img src="<?= base_url('assets/img/profile/') . $user['image']; ?>" class="img-thumbnail">
                             </div>
 
-                        </div> -->
+                        </div>
 
                         <div class="form-group">
                             <input type="text" class="form-control" id="password1" name="password1" placeholder="Password">

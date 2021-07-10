@@ -49,3 +49,18 @@ function active_check($is_active, $submenu_id)
         return "checked='checked'";
     }
 }
+
+function active_checks($is_active, $userid)
+{
+    $CI = get_instance();
+    $CI->db->where('is_active', $is_active);
+    $CI->db->where('id', $userid);
+    $result = $CI->db->get('user');
+    if ($result->num_rows() > 0) {
+        return "checked='checked'";
+    }else{
+        $result->num_rows() < 1;
+        return "checked='unchecked'";
+        
+    }
+}

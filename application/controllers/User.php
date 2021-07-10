@@ -167,4 +167,97 @@ class User extends CI_Controller
       $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . $role['name'] . ' data is deleted!</div>');
       redirect('user/karyawan');
    }
+
+
+   // public function edituser2($data_id)
+   // {
+   //    $data['title'] = 'Edit User';
+   //    $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+   //    $data['userid'] = $this->db->get_where('user', ['id' => $data_id])->row_array();
+   //    $data['roles'] = $this->db->get('user_role')->result_array();
+      
+   //    $this->form_validation->set_rules('name', 'Name', 'trim|required');
+
+   //    if ($this->form_validation->run() == false) {
+   //       $this->load->view('templates/header_ad', $data);
+   //       $this->load->view('templates/sidebar_ad', $data);
+   //       $this->load->view('templates/topbar_ad', $data);
+   //       $this->load->view('user/edit-karyawan', $data);
+   //       $this->load->view('templates/footer_ad');
+   //    } else {
+   //       $name = $this->input->post('name');
+   //       $email = $this->input->post('email');
+   //       $pass = $this->input->post('password');
+
+   //       // cek jika gambar diubah
+   //       $upload_img = $_FILES['image']['name'];
+
+   //       if ($upload_img) {
+   //          $config['upload_path'] = './assets/img/profile/';
+   //          $config['allowed_types'] = 'gif|jpg|png';
+   //          $config['max_size']     = '2048';
+
+   //          $this->load->library('upload', $config);
+   //          if ($this->upload->do_upload('image')) {
+   //             $old_img = $data['user']['image'];
+   //             if ($old_img != 'default.jpg') {
+   //                unlink(FCPATH . 'assets/img/profile/' . $old_img);
+   //             }
+   //             $new_img = $this->upload->data('file_name');
+   //             $this->db->set('image', $new_img);
+   //          } else {
+   //             echo $this->upload->display_errors();
+   //          }
+   //       }
+
+   //       $this->db->set([
+   //          'name' => $name,
+   //          // 'username' => $username
+   //       ]);
+   //       $this->db->where('email', $email);
+   //       $this->db->update('user');
+
+   //       $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Your profile has been updated!</div>');
+   //       redirect('user');
+   //    }
+   // }
+
+
+   public function edituser($userid)
+   {
+       $data['title'] = 'Edit Submenu';
+       $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+       $data['role'] = $this->db->get('user_role')->result_array();
+       $data['edituser'] = $this->db->get_where('user', ['id' => $userid])->row_array();
+
+       $this->form_validation->set_rules('name', 'name', 'required');
+       $this->form_validation->set_rules('role_id', 'Role', 'required');
+
+
+       if ($this->form_validation->run() == false) {
+           $this->load->view('templates/header_ad', $data);
+           $this->load->view('templates/sidebar_ad', $data);
+           $this->load->view('templates/topbar_ad', $data);
+           $this->load->view('user/edit-karyawan2', $data);
+           $this->load->view('templates/footer_ad', $data);
+       } else {
+           $submenu_name = $this->input->post('name');
+           $data_sub = [
+               'name' => $submenu_name,
+               'role_id' => $this->input->post('role_id'),
+               // 'url' => $this->input->post('url'),
+               // 'icon' => $this->input->post('icon'),
+               'is_active' => $this->input->post('is_active')
+           ];
+           var_dump($data_sub);
+           die;
+           $this->db->set($data_sub);
+           $this->db->where('id', $userid);
+           $this->db->update('user');
+           $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Edit Submenu Success!</div>');
+           redirect('user/karyawan');
+       }
+   }
+
 }
