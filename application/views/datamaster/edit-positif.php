@@ -4,7 +4,7 @@
     <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
     <?= $this->session->flashdata('message'); ?>
     <?= form_open('datamaster/editdata/' . $positif['id']); ?>
-    
+
     <!-- nama -->
     <div class="modal-body">
         <div class="form-group">
@@ -55,18 +55,21 @@
         </div>
 
         <div class="form-group">
+            <label for="status_id">Status</label>
             <select name="status_id" id="status_id" class="form-control">
                 <option value="">Status Kondisi</option>
                 <?php foreach ($status as $s) : ?>
                     <option value="<?= $s['id']; ?>"><?= $s['status']; ?></option>
                 <?php endforeach; ?>
             </select>
-            <label for="status_id">Status</label>
+
             <!-- <input type="text" class="form-control" id="status_id" name="status_id" value="<?= $positif['status_id']; ?>"> -->
             <?= form_error('status_id', '<small class="text-danger pl-3">', '</small>'); ?>
         </div>
+
+        <button type="submit" class="btn btn-primary">update</button>
+        </form>
     </div>
-    <button type="submit" class="btn btn-primary">update</button>
-    </form>
+
     <br>
 </div>

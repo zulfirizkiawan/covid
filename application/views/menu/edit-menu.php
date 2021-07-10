@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-lg-8">
             <?= $this->session->flashdata('message'); ?>
-            
+
             <?= form_open('menu/editmenu/' . $menu['id']); ?>
 
             <div class="form-group row">
