@@ -21,8 +21,6 @@
                             <thead>
                                 <tr>
                                     <th scope="col">No</th>
-
-                                    <th scope="col">Nos</th>
                                     <th scope="col">Menu</th>
                                     <th scope="col">Action</th>
                                 </tr>

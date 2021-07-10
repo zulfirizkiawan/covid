@@ -2,10 +2,10 @@
 
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
-    <?= $this->session->flashdata('message'); ?>
-    <?= form_open('menu/editsub/' . $submenu['id']); ?>
-    <div class="modal-body">
 
+    <div class="modal-body">
+        <?= $this->session->flashdata('message'); ?>
+        <?= form_open('menu/editsub/' . $submenu['id']); ?>
         <div class="form-group">
             <label for="title">Submenu Title</label>
             <input type="text" class="form-control" id="title" name="title" value="<?= $submenu['title']; ?>">
@@ -38,15 +38,26 @@
 
 
         <div class="form-group">
+            <label for="is_active">Status</label>
+            <select name="is_active" id="is_active" class="form-control">
+                <option value="1" <?php if ($submenu['is_active'] == "1") : ?> Selected <?php endif; ?>>Aktif</option>
+                <option value="0" <?php if ($submenu['is_active'] == "0") : ?> Selected <?php endif; ?>>Tidak Aktif</option>
+            </select>
+            <?= form_error('is_active', '<small class="text-danger pl-3">', '</small>'); ?>
+        </div>
+
+        <!-- <div class="form-group">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="<?= $submenu['is_active']; ?>" id="is_active" name="is_active" <?= active_check($submenu['is_active'], $submenu['id']); ?>>
+                <input class="form-check-input" type="checkbox" 
+                value="<?= $submenu['is_active']; ?>" id="is_active"
+                 name="is_active" <?= active_check($submenu['is_active'], $submenu['id']); ?>>
                 <label class="form-check-label" for="is_active">
                     Active?
                 </label>
             </div>
-        </div>
-
+        </div> -->
+        <button type="submit" class="btn btn-primary">Edit Submenu</button>
+        </form>
     </div>
-    <button type="submit" class="btn btn-primary">Edit Submenu</button>
-    </form>
+
 </div>

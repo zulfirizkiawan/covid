@@ -250,8 +250,8 @@ class User extends CI_Controller
                // 'icon' => $this->input->post('icon'),
                'is_active' => $this->input->post('is_active')
            ];
-           var_dump($data_sub);
-           die;
+         //   var_dump($data_sub);
+         //   die;
            $this->db->set($data_sub);
            $this->db->where('id', $userid);
            $this->db->update('user');
