@@ -1,10 +1,11 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
+   
     <?= $this->session->flashdata('message'); ?>
     <?= form_open('datamaster/editdatasembuh/' . $positif['id']); ?>
     <div class="modal-body">
+    <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
         <div class="form-group">
             <label for="title">Nama</label>
             <input type="text" class="form-control" id="nama" name="nama" value="<?= $positif['nama']; ?>">
@@ -57,7 +58,7 @@
             <!-- <input type="text" class="form-control" id="status_id" name="status_id" value="<?= $positif['status_id']; ?>"> -->
             <?= form_error('status_id', '<small class="text-danger pl-3">', '</small>'); ?>
         </div>
-        <button type="submit" class="btn btn-primary">update</button>
+        <button type="submit" class="btn btn-primary">Perbarui</button>
         </form>
     </div>
 

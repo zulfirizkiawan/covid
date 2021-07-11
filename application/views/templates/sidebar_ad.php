@@ -5,7 +5,7 @@
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url(); ?>midodaren/index">
         <div class="sidebar-brand-icon rotate-n-15">
             <!-- icon -->
-            <i class="fas fa-laugh-wink"></i>
+            <i class="fas fa-virus"></i>
         </div>
 
         <div class="sidebar-brand-text mx-3">INFO COVID</div>

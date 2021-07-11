@@ -4,10 +4,10 @@
     <!-- Page Heading -->
     <h1 class="h2 mb-4 text-gray-800"></h1>
     <!-- <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModal"> Create Data Karyawan</a> -->
-    <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#newRoleModal">Add New User</a>
+    <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#newRoleModal">Tambah User</a>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Management User</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Manajemen User</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -53,8 +53,8 @@
 
 
                                 <td>
-                                <a href="<?= base_url('user/edituser/' . $m['id']); ?>" class="badge badge-success">Edit</a>
-                                    <a class="badge badge-danger" data-toggle="modal" data-target="#deleteRole-<?= $i ?>">Delete</a>
+                                    <a href="<?= base_url('user/edituser/' . $m['id']); ?>" class="badge badge-success">Perbarui</a>
+                                    <a href="" class="badge badge-danger" data-toggle="modal" data-target="#deleteRole-<?= $i ?>">Hapus</a>
                                 </td>
                             </tr>
                             <?php $i++; ?>
@@ -72,7 +72,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="newRoleModalLabel">Add New User</h5>
+                    <h5 class="modal-title" id="newRoleModalLabel">Tambah User</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -127,8 +127,8 @@
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Add Role</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                        <button type="submit" class="btn btn-primary">Tambah User</button>
                     </div>
                 </form>
             </div>
@@ -142,46 +142,21 @@
 </div>
 <!-- End of Main Content -->
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add New Menu</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form action="<?= base_url('user/regis'); ?>" method="post">
-                <div class="modal-body">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="menu" name="menu" placeholder="Menu Name">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Add Menu</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
 <?php $i = 1; ?>
 <?php foreach ($karyawans as $mdelete) : ?>
     <div class="modal fade" id="deleteRole-<?= $i; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Delete user</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Hapus user</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Are you sure want to delete <?= $mdelete['name']; ?> ?</div>
+                <div class="modal-body">Apakah kamu ingin menghapus <?= $mdelete['name']; ?> ?</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="<?= base_url('user/deletekaryawan/') . $mdelete['id']; ?>">Delete</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                    <a class="btn btn-primary" href="<?= base_url('user/deletekaryawan/') . $mdelete['id']; ?>">Hapus</a>
                 </div>
             </div>
         </div>

@@ -41,8 +41,8 @@
                                 <td><?= $m['alamat']; ?></td>
                                 <td><?= $m['status']; ?></td>
                                 <td>
-                                    <a href="<?= base_url('datamaster/editdata/' . $m['id']); ?>" class="badge badge-success">Edit</a>
-                                    <a class="badge badge-danger" data-toggle="modal" data-target="#deleteRole-<?= $i ?>">Delete</a>
+                                    <a href="<?= base_url('datamaster/editdata/' . $m['id']); ?>" class="badge badge-success">Perbarui</a>
+                                    <a href="" class="badge badge-danger" data-toggle="modal" data-target="#deleteRole-<?= $i ?>">Hapus</a>
                                 </td>
                             </tr>
                             <?php $i++; ?>
@@ -67,7 +67,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <!-- Title -->
-                <h5 class="modal-title" id="tambahModelLabel">Tambah Data</h5>
+                <h5 class="modal-title" id="tambahModelLabel">Tambah Data Positif Covid</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -135,7 +135,7 @@
 
                 <!-- ACTION -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                     <button type="submit" class="btn btn-primary">Tambah</button>
                 </div>
             </form>
@@ -149,15 +149,15 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Delete user</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Hapus Data Positif Covid</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Are you sure want to delete <?= $mdelete['nama']; ?> ?</div>
+                <div class="modal-body">Apakah Kamu ingin menghapus <?= $mdelete['nama']; ?> ?</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="<?= base_url('datamaster/delete/') . $mdelete['id']; ?>">Delete</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">batal</button>
+                    <a class="btn btn-primary" type="button" href="<?= base_url('datamaster/delete/') . $mdelete['id']; ?>">Hapus</a>
                 </div>
             </div>
         </div>

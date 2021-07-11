@@ -12,7 +12,7 @@ class Datamaster extends CI_Controller
     }
     public function index()
     {
-        $data['title'] = 'Kasus';
+        $data['title'] = 'Positif';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -63,7 +63,7 @@ class Datamaster extends CI_Controller
 
     public function sembuh()
     {
-        $data['title'] = 'Kasus';
+        $data['title'] = 'Sembuh';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -113,7 +113,7 @@ class Datamaster extends CI_Controller
 
     public function meninggal()
     {
-        $data['title'] = 'Kasus';
+        $data['title'] = 'Meninggal';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -162,7 +162,7 @@ class Datamaster extends CI_Controller
     }
     public function editdata($data_id)
     {
-        $data['title'] = 'Edit Data Positif Covid';
+        $data['title'] = 'Perbarui Data Positif Covid';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         // $data['datapositif'] = $this->db->get('datamaster')->result_array();
         // $data['positif'] = $this->db->get_where('datamaster', ['id' => $data_id])->row_array()
@@ -226,7 +226,7 @@ class Datamaster extends CI_Controller
 
     public function editdatasembuh($data_id)
     {
-        $data['title'] = 'Edit Data Positif Covid';
+        $data['title'] = 'Perbarui Data Sembuh Covid';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         // $data['datapositif'] = $this->db->get('datamaster')->result_array();
         // $data['positif'] = $this->db->get_where('datamaster', ['id' => $data_id])->row_array()
@@ -288,7 +288,7 @@ class Datamaster extends CI_Controller
     
     public function editdatameninggal($data_id)
     {
-        $data['title'] = 'Edit Data Positif Covid';
+        $data['title'] = 'Perbarui Data Meninggal Covid';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         // $data['datapositif'] = $this->db->get('datamaster')->result_array();
         // $data['positif'] = $this->db->get_where('datamaster', ['id' => $data_id])->row_array()

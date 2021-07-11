@@ -9,9 +9,9 @@
             <?= $this->session->flashdata('message'); ?>
 
             <?= form_open('menu/editmenu/' . $menu['id']); ?>
-
+ 
             <div class="form-group row">
-                <label for="email" class="col-sm-2 col-form-label">Menu name</label>
+                <label for="email" class="col-sm-2 col-form-label">Nama Menu</label>
                 <div class="col-sm-10">
                     <input type="text" name="menu" id="menu" class="form-control" value="<?= $menu['menu']; ?>">
                     <?= form_error('menu', '<small class="text-danger pl-3">', '</small>') ?>
@@ -20,7 +20,7 @@
 
             <div class="form-group row justify-content-end">
                 <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary">Edit</button>
+                    <button type="submit" class="btn btn-primary">Perbarui</button>
                 </div>
             </div>
 

@@ -7,8 +7,8 @@
     <?= form_error('role', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
     <?= $this->session->flashdata('message'); ?>
 
-    <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#tambahModel">Tambah Data</a>
-
+    <!-- <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#tambahModel">Tambah Data</a> -->
+ 
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <!-- <h6 class="m-0 font-weight-bold text-primary">Management User</h6> -->
@@ -41,8 +41,8 @@
                                 <td><?= $m['alamat']; ?></td>
                                 <td><?= $m['status']; ?></td>
                                 <td>
-                                    <a href="<?= base_url('datamaster/editdatasembuh/' . $m['id']); ?>" class="badge badge-success">Edit</a>
-                                    <a class="badge badge-danger" data-toggle="modal" data-target="#deleteRole-<?= $i ?>">Delete</a>
+                                    <a href="<?= base_url('datamaster/editdatasembuh/' . $m['id']); ?>" class="badge badge-success">Perbarui</a>
+                                    <a href="" class="badge badge-danger" data-toggle="modal" data-target="#deleteRole-<?= $i ?>">Hapus</a>
                                 </td>
                             </tr>
                             <?php $i++; ?>
@@ -149,15 +149,15 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Delete user</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Hapus Data Sembuh Covid</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Are you sure want to delete <?= $mdelete['nama']; ?> ?</div>
+                <div class="modal-body">Apakah Kamu ingin menghapus <?= $mdelete['nama']; ?> ?</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="<?= base_url('datamaster/deletesembuh/') . $mdelete['id']; ?>">Delete</a>
+                    <a class="btn btn-primary" href="<?= base_url('datamaster/deletesembuh/') . $mdelete['id']; ?>">Hapus</a>
                 </div>
             </div>
         </div>

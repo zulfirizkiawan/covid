@@ -4,7 +4,7 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800"></h1>
 
-
+ 
     <div class="row">
         <div class="col-lg">
             <?php if (validation_errors()) : ?>
@@ -13,11 +13,11 @@
                 </div>
             <?php endif; ?>
             <?= $this->session->flashdata('message'); ?>
-            <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModal">Add New Sub Menu</a>
+            <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModal">Tambah Sub Menu</a>
 
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Management Sub Menu</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Manajemen Sub Menu</h6>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -45,8 +45,8 @@
                                         <td><?= $sm['icon'] ?></td>
                                         <td><?= $sm['is_active'] ?></td>
                                         <td>
-                                            <a href="<?= base_url('menu/editsub/' . $sm['id']) ?>" class="badge badge-success">Edit</a>
-                                            <a href="<?= base_url('menu/deletesub/' . $sm['id']) ?>" class="badge badge-danger" data-toggle="modal" data-target="#deleteSubmenu-<?= $i; ?>">Delete</a>
+                                            <a href="<?= base_url('menu/editsub/' . $sm['id']) ?>" class="badge badge-success">Perbarui</a>
+                                            <a href="<?= base_url('menu/deletesub/' . $sm['id']) ?>" class="badge badge-danger" data-toggle="modal" data-target="#deleteSubmenu-<?= $i; ?>">Hapus</a>
                                         </td>
                                     </tr>
                                     <?php $i++; ?>
@@ -67,7 +67,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Add New Sub Menu</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Tambah Sub Menu</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -102,8 +102,8 @@
 
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Add Sub Menu</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                            <button type="submit" class="btn btn-primary">Tambah Sub Menu</button>
                         </div>
                     </form>
                 </div>
@@ -117,15 +117,15 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Delete Submenu</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Hapus Sub Menu</h5>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">×</span>
                             </button>
                         </div>
-                        <div class="modal-body">Are you sure want to delete <?= $sm['menu']; ?> Submenu?</div>
+                        <div class="modal-body">Apakah kamu ingin menghapus <?= $sm['menu']; ?> Sub Menu ?</div>
                         <div class="modal-footer">
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                            <a class="btn btn-primary" href="<?= base_url('menu/deletesub/') . $sm['id']; ?>">Delete</a>
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                            <a class="btn btn-primary" href="<?= base_url('menu/deletesub/') . $sm['id']; ?>">Hapus</a>
                         </div>
                     </div>
                 </div>

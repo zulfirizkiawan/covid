@@ -1,13 +1,14 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
+   
 
     <div class="modal-body">
+    <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
         <?= $this->session->flashdata('message'); ?>
         <?= form_open('menu/editsub/' . $submenu['id']); ?>
         <div class="form-group">
-            <label for="title">Submenu Title</label>
+            <label for="title">Sub Menu Title</label>
             <input type="text" class="form-control" id="title" name="title" value="<?= $submenu['title']; ?>">
             <?= form_error('title', '<small class="text-danger pl-3">', '</small>'); ?>
         </div>
@@ -15,7 +16,7 @@
         <div class="form-group">
             <label for="menu_id">Menu</label>
             <select name="menu_id" id="menu_id" class="form-control">
-                <option value="">Select Menu</option>
+                <option value="">Pilih Menu</option>
                 <?php foreach ($menu as $m) : ?>
                     <option value="<?= $m['id']; ?>"><?= $m['menu']; ?></option>
                 <?php endforeach; ?>
@@ -45,7 +46,7 @@
             </select>
             <?= form_error('is_active', '<small class="text-danger pl-3">', '</small>'); ?>
         </div>
-
+ 
         <!-- <div class="form-group">
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" 
@@ -56,7 +57,7 @@
                 </label>
             </div>
         </div> -->
-        <button type="submit" class="btn btn-primary">Edit Submenu</button>
+        <button type="submit" class="btn btn-primary">Perbarui Submenu</button>
         </form>
     </div>
 

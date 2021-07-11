@@ -69,7 +69,7 @@ class Menu extends CI_Controller
 
     public function editmenu($menu_id)
     {
-        $data['title'] = 'Edit Menu';
+        $data['title'] = 'Perbarui Menu';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['menu'] = $this->db->get_where('user_menu', ['id' => $menu_id])->row_array();
 
@@ -109,7 +109,7 @@ class Menu extends CI_Controller
 
     public function editsub($submenu_id)
     {
-        $data['title'] = 'Edit Submenu';
+        $data['title'] = 'Perbarui Sub Menu';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['menu'] = $this->db->get('user_menu')->result_array();
         $data['submenu'] = $this->db->get_where('user_sub_menu', ['id' => $submenu_id])->row_array();

@@ -1,11 +1,10 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">Edit User</h1>
    
 
     <div class="modal-body">
-
+    <h1 class="h3 mb-4 text-gray-800">Perbarui User</h1>
     <?= $this->session->flashdata('message'); ?>
     <?= form_open('user/edituser/' . $edituser['id']); ?>
 
@@ -16,7 +15,7 @@
         </div>
 
         <div class="form-group">
-            <label for="role_id">Role</label>
+            <label for="role_id">Hak Akses</label>
             <select name="role_id" id="role_id" class="form-control">
                 
                 <?php foreach ($role as $m) : ?>
@@ -36,7 +35,6 @@
             <?= form_error('is_active', '<small class="text-danger pl-3">', '</small>'); ?>
         </div>
 
-
         <!-- <div class="form-group">
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="<?= $edituser['is_active']; ?>" id="is_active" name="is_active"
@@ -48,7 +46,7 @@
             </div>
         </div> -->
 
-        <button type="submit" class="btn btn-primary">Edit User</button>
+        <button type="submit" class="btn btn-primary">Perbarui User</button>
     </form>
     </div>
    
